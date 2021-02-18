@@ -1,9 +1,9 @@
-com/java/service/IProductService.java
- com.java.service.IProductService
-com/java/model/Products.java
- com.java.model.Products
 com/java/service/IGenaricService.java
  com.java.service.IGenaricService
+com/java/model/Products.java
+ com.java.model.Products
+com/java/service/IProductService.java
+ com.java.service.IProductService
 com/java/controller/ProductServlet.java
  com.java.controller.ProductServlet
 com/java/service/ProductService.java

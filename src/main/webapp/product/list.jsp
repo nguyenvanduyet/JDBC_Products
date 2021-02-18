@@ -13,6 +13,12 @@
 </head>
 <body>
 <h1>Danh sách sản phẩm</h1>
+<form action="/product">
+    <input value="search" name="action" hidden>
+    <input type="text" name="name" placeholder="nhập tên" >
+    <input type="submit" value="tìm kiếm">
+</form>
+
 <table>
     <tr>
         <td>name</td>
@@ -20,12 +26,12 @@
         <td>edit</td>
         <td>delete</td>
     </tr>
-    <c:forEach items="${list}" var="p">
+    <c:forEach items="${p}" var="product">
         <tr>
-            <td>${p.getName()}</td>
-            <td>${p.getPrice()}</td>
-            <td><a href="/products?action=edit&id=${product.getId()}">edit</a></td>
-            <td><a href="/products?action=delete&id=${product.getId()}">delete</a></td>
+            <td>${product.getName()}</td>
+            <td>${product.getPrice()}</td>
+            <td><a href="/product?action=edit&id=${product.getId()}">edit</a></td>
+            <td><a href="/product?action=delete&id=${product.getId()}">delete</a></td>
         </tr>
     </c:forEach>
 

@@ -91,10 +91,28 @@ public class ProductServlet extends HttpServlet {
             case "delete":
                 showDeleteForm(request,response);
                 break;
+            case "search":
+                searchByName(request,response);
+                break;
             default:
                 showFindAll(request,response);
                 break;
         }
+    }
+
+    private void searchByName(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        List<Products> products = productService.findByName(name);
+        request.setAttribute("p",products);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("product/list.jsp");
+        try {
+            dispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("đây là phương thức search");
     }
 
     private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
